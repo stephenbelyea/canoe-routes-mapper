@@ -1,0 +1,139 @@
+{
+  "columns": [
+    { "name": "Shape_Leng", "type": "numeric" },
+    { "name": "Distance", "type": "string" },
+    { "name": "Lake_1", "type": "string" },
+    { "name": "Lake_2", "type": "string" },
+    { "name": "Lake_3", "type": "string" },
+    { "name": "Park_1", "type": "string" },
+    { "name": "Park_2", "type": "string" }
+  ],
+  "rows": [
+    {
+      "Shape_Leng": 0.0435815293737,
+      "Distance": "4.4km",
+      "Lake_1": "Sandy Inlet",
+      "Lake_2": "Lake Temagami",
+      "Lake_3": "",
+      "Park_1": "Temagami",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0263500687321,
+      "Distance": "2.6",
+      "Lake_1": "Sharp Rock Inlet",
+      "Lake_2": "Lake Temagami",
+      "Lake_3": "",
+      "Park_1": "Temagami",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0164021222929,
+      "Distance": "1.6km",
+      "Lake_1": "",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0344046667811,
+      "Distance": "3.4km",
+      "Lake_1": "Diamond Lake",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Obabika River PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0204785280572,
+      "Distance": "2.0km",
+      "Lake_1": "Diamond Lake",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Obabika River PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0438023664004,
+      "Distance": "4.4km",
+      "Lake_1": "Sharp Rock Inlet",
+      "Lake_2": "Lake Temagami",
+      "Lake_3": "",
+      "Park_1": "Obabika River PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0493733005575,
+      "Distance": "5.0km",
+      "Lake_1": "Diamon Lake",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Obaika River PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0337676547722,
+      "Distance": "3.4km",
+      "Lake_1": "Diamond Lake",
+      "Lake_2": "Lady Evelyn River",
+      "Lake_3": "",
+      "Park_1": "Obabika River PP",
+      "Park_2": "Lady Evelyn PP"
+    },
+    {
+      "Shape_Leng": 0.0431043030296,
+      "Distance": "4.3km",
+      "Lake_1": "Diamond Lake",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Lady Evelyn PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0403610725817,
+      "Distance": "4.0km",
+      "Lake_1": "Diamond Lake",
+      "Lake_2": "Lady Evelyn Lake",
+      "Lake_3": "",
+      "Park_1": "Lady Evelyn PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0160058608575,
+      "Distance": "1.6km",
+      "Lake_1": "Lady Evelyn Lake",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Lady Evelyn PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0486348320105,
+      "Distance": "4.9km",
+      "Lake_1": "Lady Evelyn Lake",
+      "Lake_2": "Peanut Butter & Banana Bay",
+      "Lake_3": "Unknown",
+      "Park_1": "",
+      "Park_2": "Lady Evelyn PP"
+    },
+    {
+      "Shape_Leng": 0.0213042182601,
+      "Distance": "2.1km",
+      "Lake_1": "Unknown",
+      "Lake_2": "Willow Island",
+      "Lake_3": "",
+      "Park_1": "Lady Evelyn PP",
+      "Park_2": ""
+    },
+    {
+      "Shape_Leng": 0.0709686245856,
+      "Distance": "7.1km",
+      "Lake_1": "Willow Island",
+      "Lake_2": "",
+      "Lake_3": "",
+      "Park_1": "Lady Evelyn PP",
+      "Park_2": ""
+    }
+  ]
+}
