@@ -1,7 +1,11 @@
 {
   "dependencies": {
+    "@ngageoint/geopackage": "^4.2.6",
     "dbf-reader": "^1.0.3",
     "pdf-parse": "^2.4.5",
     "pdf.js-extract": "^0.2.1"
+  },
+  "scripts": {
+    "parse": "node scripts"
   }
 }
