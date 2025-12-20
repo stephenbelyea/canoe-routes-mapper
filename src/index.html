@@ -12,11 +12,13 @@
       <main>
         <h1>Canoe Routes Mapper</h1>
         <div class="field">
-          <label for="gpkg">Upload GPKG File</label>
-          <input type="file" name="gpkg" id="gpkg" />
+          <label for="fileInput">Upload GPKG File</label>
+          <input type="file" name="fileInput" id="fileInput" />
         </div>
+        <div id="map"></div>
       </main>
     </div>
   </body>
   <script src="geopackage/dist/geopackage.min.js"></script>
+  <script src="mapper.js"></script>
 </html>
