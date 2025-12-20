@@ -1,0 +1,23 @@
+{
+  "name": "canoe-routes-mapper",
+  "version": "1.0.0",
+  "description": "Early days of a route mapping tool for Canoe Routes Ontario.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenbelyea/canoe-routes-mapper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephenbelyea/canoe-routes-mapper/issues"
+  },
+  "homepage": "https://github.com/stephenbelyea/canoe-routes-mapper#readme",
+  "dependencies": {
+    "serve": "^14.2.5"
+  }
+}
