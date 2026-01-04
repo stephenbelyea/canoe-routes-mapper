@@ -1,14 +1,12 @@
 import type { ReactNode } from "react";
 
-export const Layout = ({
-  className = "",
-  heading,
-  children,
-}: {
+export type LayoutProps = {
   className?: string;
   heading: ReactNode;
   children: ReactNode;
-}) => {
+};
+
+export const Layout = ({ className = "", heading, children }: LayoutProps) => {
   return (
     <div className={`view ${className}`}>
       <div className="wrap">
