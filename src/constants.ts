@@ -17,3 +17,8 @@ export const SITE_ICON_OPTIONS: IconOptions = {
   iconAnchor: [BASE_ICON_SIZE * 0.5, BASE_ICON_SIZE * 0.85],
   tooltipAnchor: [BASE_ICON_SIZE * 0.35, BASE_ICON_SIZE * -0.35],
 };
+
+export const SEGMENT_TYPES = {
+  PADDLE: "paddle",
+  PORTAGE: "portage",
+};
