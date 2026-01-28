@@ -3,11 +3,11 @@ import type { IconOptions, LatLngExpression } from "leaflet";
 export const MAP_CONFIG = {
   ATTRIBUTION:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  CENTER: [47.311, -80.22] as LatLngExpression,
+  CENTER: [47.08, -80.13] as LatLngExpression,
   CONTAINER_ID: "map",
   SCROLL_ZOOM: false,
   URL: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  ZOOM: 12,
+  ZOOM: 9,
 };
 
 export const BASE_ICON_SIZE = 24;
@@ -22,3 +22,5 @@ export const SEGMENT_TYPES = {
   PADDLE: "paddle",
   PORTAGE: "portage",
 };
+
+export const SEGMENT_PATH_COLOUR = "dodgerblue";
