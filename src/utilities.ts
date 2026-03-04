@@ -72,16 +72,18 @@ export const transformSegmentsData = ({
 
   features.forEach(({ type: rawType, bbox: rawBbox, geometry, properties }) => {
     const props = properties as RawSegmentProperties;
+    const coords = (geometry.coordinates as RawCoordinate[]).map(
+      transformCoordinate,
+    );
     const segment: SegmentSet = {
       lakes: transformPropertyGroup(props, "Lake") as LakeItem[],
       parks: transformPropertyGroup(props, "Park") as ParkItem[],
-      coords: (geometry.coordinates as RawCoordinate[]).map(
-        transformCoordinate,
-      ),
       length: transformLength(props.Shape_Leng),
       bbox: transformBoundingBox(rawBbox),
       type: `${rawType}|${geometry.type}`,
       distance: props.Distance,
+      id: coords.toString(),
+      coords,
     };
     segments.push(segment);
   });

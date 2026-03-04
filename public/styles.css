@@ -2,6 +2,7 @@
   /* azure, cornsilk, floralwhite, ivory, snow */
   --color-white: ivory;
   --color-black: #343434;
+  --transition-time: 0.15s;
 }
 
 body {
@@ -34,6 +35,7 @@ main {
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
+  position: relative;
 }
 
 footer {
@@ -62,12 +64,49 @@ h3 {
 
 #map {
   flex: 1 1 auto;
+  position: relative;
+  z-index: 10;
 }
 
-#map svg path {
+#map svg path.leaflet-interactive {
+  transition: stroke-opacity var(--transition-time);
+
   &:hover,
   &:focus {
     stroke-opacity: 0.85;
+  }
+}
+
+#map .leaflet-marker-pane .leaflet-marker-icon {
+  transition: opacity var(--transition-time);
+
+  &:hover,
+  &:focus {
+    opacity: 0.95 !important;
+  }
+}
+
+.button {
+  background: white;
+  border: 1px solid var(--color-black);
+  border-radius: 0.25em;
+}
+
+.selected-segments {
+  padding: 0.5rem;
+  background: white;
+  border-radius: 0.25em;
+  position: absolute;
+  top: 1.35rem;
+  right: 1.35rem;
+  border: 1px solid var(--color-black);
+  z-index: 99;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+
+  .button {
+    font-size: 0.75rem;
   }
 }
 
@@ -77,11 +116,7 @@ h3 {
   justify-content: flex-start;
   gap: 1rem;
 
-  button.control {
-    background: white;
-    border: 1px solid var(--color-black);
-    border-radius: 0.25em;
-
+  .button.control {
     &:before {
       content: "\00D7";
       display: inline-block;

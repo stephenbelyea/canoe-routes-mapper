@@ -8,6 +8,7 @@ export type SegmentSet = {
   distance: string;
   length: number;
   type: string;
+  id: string;
 };
 
 export type SegmentsData = {

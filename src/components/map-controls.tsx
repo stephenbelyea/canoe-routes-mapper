@@ -20,21 +20,21 @@ export const MapControls = ({
       <div className="map-controls">
         <strong>Showing:</strong>
         <button
-          className="control"
+          className="control button"
           aria-pressed={showSegments}
           onClick={() => setShowSegments(!showSegments)}
         >
           Segments
         </button>
         <button
-          className="control"
+          className="control button"
           aria-pressed={showCampsites}
           onClick={() => setShowCampsites(!showCampsites)}
         >
           Campsites
         </button>
         <button
-          className="control"
+          className="control button"
           aria-pressed={showHaveCamped}
           onClick={() => setShowHaveCamped(!showHaveCamped)}
           disabled={!showCampsites}

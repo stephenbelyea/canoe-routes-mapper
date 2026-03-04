@@ -21,7 +21,7 @@ export const AllCampsitesPoints = ({ campsites }: CampsitesPointsProps) => {
         const lakes = campsite.lakes.map((lake) => lake.name).join(", ");
         const parks = campsite.parks.map((park) => park.name).join(", ");
         return (
-          <Marker key={key} position={coords} icon={tentIcon} opacity={0.85}>
+          <Marker key={key} position={coords} icon={tentIcon} opacity={0.65}>
             <Tooltip sticky>
               <span>Lake(s): {lakes ? lakes : "-"}</span>
               <br />

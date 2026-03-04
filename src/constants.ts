@@ -24,3 +24,4 @@ export const SEGMENT_TYPES = {
 };
 
 export const SEGMENT_PATH_COLOUR = "dodgerblue";
+export const SEGMENT_SELECTED_COLOUR = "purple";

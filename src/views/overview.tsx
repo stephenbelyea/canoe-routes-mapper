@@ -5,6 +5,7 @@ import {
   Layout,
   MapControls,
   MapMeta,
+  SelectedSegments,
 } from "../components";
 import { useGetCampsites, useGetSegments } from "../hooks";
 import { MAP_CONFIG } from "../constants";
@@ -15,8 +16,9 @@ export const Overview = () => {
   const { campsites } = useGetCampsites();
 
   const [showSegments, setShowSegments] = useState(true);
-  const [showCampsites, setShowCampsites] = useState(true);
+  const [showCampsites, setShowCampsites] = useState(false);
   const [showHaveCamped, setShowHaveCamped] = useState(false);
+  const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
 
   const allSegments = useMemo(
     () => (showSegments ? segments : []),
@@ -45,13 +47,21 @@ export const Overview = () => {
         />
       }
     >
+      <SelectedSegments
+        selectedSegments={selectedSegments}
+        setSelectedSegments={setSelectedSegments}
+      />
       <MapContainer
         center={center || MAP_CONFIG.CENTER}
         id={MAP_CONFIG.CONTAINER_ID}
         zoom={MAP_CONFIG.ZOOM}
       >
         <MapMeta />
-        <AllSegmentsPaths segments={allSegments} />
+        <AllSegmentsPaths
+          segments={allSegments}
+          selectedSegments={selectedSegments}
+          setSelectedSegments={setSelectedSegments}
+        />
         <AllCampsitesPoints campsites={allCampsites} />
       </MapContainer>
     </Layout>
