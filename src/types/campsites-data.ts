@@ -1,19 +1,21 @@
 import type { BoundingBox, Coordinate, LakeItem, ParkItem } from "./common";
 
-export type SegmentSet = {
-  coords: Coordinate[];
+export type CampsiteSet = {
+  coords: Coordinate;
   lakes: LakeItem[];
   parks: ParkItem[];
   bbox?: BoundingBox;
-  distance: string;
-  length: number;
   type: string;
+  number?: string;
+  camped?: boolean;
+  dates?: string[];
+  notes?: string;
 };
 
-export type SegmentsData = {
+export type CampsitesData = {
   name: string;
   type: string;
   bbox?: BoundingBox;
   center?: Coordinate;
-  segments: SegmentSet[];
+  campsites: CampsiteSet[];
 };

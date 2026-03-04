@@ -22,6 +22,7 @@ body {
 }
 
 header,
+aside,
 main,
 footer {
   padding: 1rem;
@@ -32,6 +33,7 @@ main {
   flex-grow: 1;
   display: flex;
   align-items: stretch;
+  flex-wrap: wrap;
 }
 
 footer {
@@ -60,4 +62,34 @@ h3 {
 
 #map {
   flex: 1 1 auto;
+}
+
+#map svg path {
+  &:hover,
+  &:focus {
+    stroke-opacity: 0.85;
+  }
+}
+
+.map-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  button.control {
+    background: white;
+    border: 1px solid var(--color-black);
+    border-radius: 0.25em;
+
+    &:before {
+      content: "\00D7";
+      display: inline-block;
+      margin-right: 0.25em;
+    }
+
+    &[aria-pressed="true"]:before {
+      content: "\2713";
+    }
+  }
 }

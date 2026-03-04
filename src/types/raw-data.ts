@@ -3,7 +3,7 @@ import type { LatLngTuple } from "leaflet";
 export type RawCoordinate = LatLngTuple;
 export type RawBoundingBox = [...RawCoordinate, ...RawCoordinate];
 
-export type RawFeatureProperties = {
+export type RawSegmentProperties = {
   Distance: string;
   Lake_1: string | null;
   Lake_2: string | null;
@@ -17,20 +17,31 @@ export type RawFeatureProperties = {
   Shape_Leng: number;
 };
 
-export type RawSegmentsFeature = {
-  geometry: { type: string; coordinates: RawCoordinate[] };
-  properties: RawFeatureProperties;
+export type YesOrNo = "Yes" | "No";
+
+export type RawCampsiteProperties = {
+  Number?: string;
+  Lake?: string;
+  Park?: string;
+  Camped?: YesOrNo;
+  Info?: string;
+  DateCamped?: string;
+};
+
+export type RawFeature = {
+  geometry: { type: string; coordinates: RawCoordinate[] | RawCoordinate };
+  properties: RawSegmentProperties | RawCampsiteProperties;
   bbox: RawBoundingBox;
   type: string;
 };
 
-export type RawSegmentsSet = {
-  features: RawSegmentsFeature[];
+export type RawGeoDataSet = {
+  features: RawFeature[];
   bbox: RawBoundingBox;
   name: string;
   type: string;
 };
 
-export interface RawSegmentsData extends RawSegmentsSet {
-  default: RawSegmentsSet;
+export interface RawGeoData extends RawGeoDataSet {
+  default: RawGeoDataSet;
 }

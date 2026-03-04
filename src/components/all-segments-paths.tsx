@@ -13,7 +13,7 @@ const circleProps = {
 
 const pathProps = {
   color: SEGMENT_PATH_COLOUR,
-  opacity: 0.65,
+  opacity: 0.45,
   weight: 5,
 };
 
