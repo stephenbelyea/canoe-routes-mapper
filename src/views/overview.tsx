@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { MapContainer } from "react-leaflet";
 import {
   AllCampsitesPoints,
@@ -5,11 +6,10 @@ import {
   Layout,
   MapControls,
   MapMeta,
-  SelectedSegments,
+  SelectedRoute,
 } from "../components";
 import { useGetCampsites, useGetSegments } from "../hooks";
 import { MAP_CONFIG } from "../constants";
-import { useMemo, useState } from "react";
 
 export const Overview = () => {
   const { segments, center } = useGetSegments();
@@ -24,6 +24,7 @@ export const Overview = () => {
     () => (showSegments ? segments : []),
     [showSegments, segments],
   );
+
   const allCampsites = useMemo(() => {
     if (!showCampsites) return [];
     if (showHaveCamped) {
@@ -31,6 +32,11 @@ export const Overview = () => {
     }
     return campsites;
   }, [showCampsites, showHaveCamped, campsites]);
+
+  const selectedRoute = useMemo(() => {
+    if (selectedSegments.length === 0) return [];
+    return segments.filter((segment) => selectedSegments.includes(segment.id));
+  }, [selectedSegments, segments]);
 
   return (
     <Layout
@@ -47,7 +53,8 @@ export const Overview = () => {
         />
       }
     >
-      <SelectedSegments
+      <SelectedRoute
+        selectedRoute={selectedRoute}
         selectedSegments={selectedSegments}
         setSelectedSegments={setSelectedSegments}
       />
@@ -59,6 +66,12 @@ export const Overview = () => {
         <MapMeta />
         <AllSegmentsPaths
           segments={allSegments}
+          selectedSegments={selectedSegments}
+          setSelectedSegments={setSelectedSegments}
+        />
+        <AllSegmentsPaths
+          isSelectedSet
+          segments={selectedRoute}
           selectedSegments={selectedSegments}
           setSelectedSegments={setSelectedSegments}
         />

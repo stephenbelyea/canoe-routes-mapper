@@ -1,27 +1,23 @@
 import { useMemo } from "react";
-import { useGetSegments } from "../hooks";
 import { formatLength } from "../utilities";
+import type { SegmentSet } from "../types";
 
-export type SelectedSegmentsProps = {
+export type SelectedRouteProps = {
+  selectedRoute: SegmentSet[];
   selectedSegments: string[];
   setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-export const SelectedSegments = ({
+export const SelectedRoute = ({
+  selectedRoute,
   selectedSegments,
   setSelectedSegments,
-}: SelectedSegmentsProps) => {
-  const { segments } = useGetSegments();
+}: SelectedRouteProps) => {
   const hasSelected = selectedSegments.length > 0;
 
   const onClearSelected = () => {
     setSelectedSegments([]);
   };
-
-  const selectedRoute = useMemo(() => {
-    if (!hasSelected) return [];
-    return segments.filter((segment) => selectedSegments.includes(segment.id));
-  }, [hasSelected, segments, selectedSegments]);
 
   const totalLength = useMemo(() => {
     let length = 0;
