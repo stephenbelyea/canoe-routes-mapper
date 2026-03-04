@@ -8,7 +8,7 @@ import {
 } from "../components";
 import { useGetCampsites, useGetSegments } from "../hooks";
 import { MAP_CONFIG } from "../constants";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export const Overview = () => {
   const { segments, center } = useGetSegments();
@@ -16,6 +16,19 @@ export const Overview = () => {
 
   const [showSegments, setShowSegments] = useState(true);
   const [showCampsites, setShowCampsites] = useState(true);
+  const [showHaveCamped, setShowHaveCamped] = useState(false);
+
+  const allSegments = useMemo(
+    () => (showSegments ? segments : []),
+    [showSegments, segments],
+  );
+  const allCampsites = useMemo(() => {
+    if (!showCampsites) return [];
+    if (showHaveCamped) {
+      return campsites.filter((campsite) => campsite.camped);
+    }
+    return campsites;
+  }, [showCampsites, showHaveCamped, campsites]);
 
   return (
     <Layout
@@ -24,8 +37,10 @@ export const Overview = () => {
       above={
         <MapControls
           showCampsites={showCampsites}
+          showHaveCamped={showHaveCamped}
           showSegments={showSegments}
           setShowCampsites={setShowCampsites}
+          setShowHaveCamped={setShowHaveCamped}
           setShowSegments={setShowSegments}
         />
       }
@@ -36,8 +51,8 @@ export const Overview = () => {
         zoom={MAP_CONFIG.ZOOM}
       >
         <MapMeta />
-        <AllSegmentsPaths segments={showSegments ? segments : []} />
-        <AllCampsitesPoints campsites={showCampsites ? campsites : []} />
+        <AllSegmentsPaths segments={allSegments} />
+        <AllCampsitesPoints campsites={allCampsites} />
       </MapContainer>
     </Layout>
   );
