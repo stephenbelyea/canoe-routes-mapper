@@ -8,6 +8,10 @@ Use [MyGeodata](https://mygeodata.cloud/) to read the SHP, DBF, and any other ex
 - Export conversion using the GeoJSON format (.geojson)
 - Select 'Yes' to write the Bbox property
 
+## Icon Library
+
+The [Atlas Icons library](https://atlasicons.vectoricons.net/) is installed in this codebase via [the React NPM package](https://www.npmjs.com/package/@vectoricons/atlas-icons-react).
+
 ## Run Locally
 
 ```bash

@@ -4,3 +4,4 @@ export * from "./all-segments-paths";
 export * from "./all-campsites-points";
 export * from "./selected-route";
 export * from "./map-controls";
+export * from "./button";

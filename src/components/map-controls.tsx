@@ -1,3 +1,5 @@
+import { Button } from "./button";
+
 export type MapControlsProps = {
   showCampsites: boolean;
   showHaveCamped: boolean;
@@ -19,28 +21,25 @@ export const MapControls = ({
     <>
       <div className="map-controls">
         <strong>Showing:</strong>
-        <button
-          className="control button"
+        <Button
           aria-pressed={showSegments}
           onClick={() => setShowSegments(!showSegments)}
         >
           Segments
-        </button>
-        <button
-          className="control button"
+        </Button>
+        <Button
           aria-pressed={showCampsites}
           onClick={() => setShowCampsites(!showCampsites)}
         >
           Campsites
-        </button>
-        <button
-          className="control button"
+        </Button>
+        <Button
           aria-pressed={showHaveCamped}
           onClick={() => setShowHaveCamped(!showHaveCamped)}
           disabled={!showCampsites}
         >
           Only Sites I've Camped At
-        </button>
+        </Button>
       </div>
     </>
   );

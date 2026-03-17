@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { formatLength } from "../utilities";
 import type { SegmentSet } from "../types";
+import { Button } from "./button";
 
 export type SelectedRouteProps = {
   selectedRoute: SegmentSet[];
@@ -38,13 +39,9 @@ export const SelectedRoute = ({
           <span>No route selected.</span>
         )}
       </div>
-      <button
-        className="button"
-        disabled={!hasSelected}
-        onClick={onClearSelected}
-      >
+      <Button size="small" disabled={!hasSelected} onClick={onClearSelected}>
         Clear
-      </button>
+      </Button>
     </div>
   );
 };
