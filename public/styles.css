@@ -1,7 +1,10 @@
 :root {
   /* azure, cornsilk, floralwhite, ivory, snow */
-  --color-white: ivory;
+  --color-white: white;
+  --color-white-active: snow;
+  --color-offwhite: ivory;
   --color-black: #343434;
+  --color-black-disabled: rgba(0, 0, 0, 0.35);
   --transition-time: 0.15s;
 }
 
@@ -10,7 +13,7 @@ body {
   font-size: 1rem;
   line-height: 1.35;
   color: var(--color-black);
-  background: var(--color-white);
+  background: var(--color-offwhite);
 }
 
 .wrap {
