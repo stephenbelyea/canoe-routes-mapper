@@ -10,15 +10,19 @@ import {
 } from "../components";
 import { useGetCampsites, useGetSegments } from "../hooks";
 import { MAP_CONFIG } from "../constants";
+import { useGetSavedRoutes } from "../hooks/use-get-saved-routes";
+import type { SavedRoute } from "../types/saved-routes-data";
 
 export const Overview = () => {
   const { segments, center } = useGetSegments();
   const { campsites } = useGetCampsites();
+  const { savedRoutes } = useGetSavedRoutes();
 
   const [showSegments, setShowSegments] = useState(true);
   const [showCampsites, setShowCampsites] = useState(false);
   const [showHaveCamped, setShowHaveCamped] = useState(false);
   const [selectedSegments, setSelectedSegments] = useState<string[]>([]);
+  const [savedRoute, setSavedRoute] = useState<string>("");
 
   const allSegments = useMemo(
     () => (showSegments ? segments : []),
@@ -38,6 +42,32 @@ export const Overview = () => {
     return segments.filter((segment) => selectedSegments.includes(segment.id));
   }, [selectedSegments, segments]);
 
+  const savedRoutesOptions = useMemo(() => {
+    if (savedRoutes.length === 0) return [];
+    return [
+      { value: "", label: "Select a saved route" },
+      ...savedRoutes.map((route: SavedRoute) => ({
+        value: route.id,
+        label: route.name,
+      })),
+    ];
+  }, [savedRoutes]);
+
+  const setSelectSavedRoute = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    const segments = [];
+
+    if (value !== "") {
+      const saved = savedRoutes.find(({ id }) => id === value);
+      if (saved) {
+        segments.push(...saved.segments);
+      }
+    }
+
+    setSavedRoute(value);
+    setSelectedSegments(segments);
+  };
+
   return (
     <Layout
       heading="Canoe Routes Mapper"
@@ -47,9 +77,12 @@ export const Overview = () => {
           showCampsites={showCampsites}
           showHaveCamped={showHaveCamped}
           showSegments={showSegments}
+          selectedRoute={savedRoute}
+          savedRoutesOptions={savedRoutesOptions}
           setShowCampsites={setShowCampsites}
           setShowHaveCamped={setShowHaveCamped}
           setShowSegments={setShowSegments}
+          setSelectedRoute={setSelectSavedRoute}
         />
       }
     >
