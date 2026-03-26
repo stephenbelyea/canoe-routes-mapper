@@ -1,0 +1,130 @@
+:root {
+  /* azure, cornsilk, floralwhite, ivory, snow */
+  --color-white: white;
+  --color-white-active: snow;
+  --color-offwhite: ivory;
+  --color-black: #343434;
+  --color-black-disabled: rgba(0, 0, 0, 0.35);
+  --transition-time: 0.15s;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: var(--color-black);
+  background: var(--color-offwhite);
+}
+
+.wrap {
+  width: 90vw;
+  min-height: 100vh;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+aside,
+main,
+footer {
+  padding: 0.75rem;
+  flex: 0 0 auto;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+h2,
+h3 {
+  margin: 1em 0;
+}
+
+p {
+  margin: 0 0 0.75em;
+}
+
+h1 {
+  margin: 0.5em 0 0;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+#map {
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 10;
+}
+
+#map svg path.leaflet-interactive {
+  transition: stroke-opacity var(--transition-time);
+
+  &:hover,
+  &:focus {
+    stroke-opacity: 0.85;
+  }
+}
+
+#map .leaflet-marker-pane .leaflet-marker-icon {
+  transition: opacity var(--transition-time);
+
+  &:hover,
+  &:focus {
+    opacity: 0.95 !important;
+  }
+}
+
+.button {
+  background: white;
+  border: 1px solid var(--color-black);
+  border-radius: 0.25em;
+}
+
+.selected-segments {
+  padding: 0.5rem;
+  background: white;
+  border-radius: 0.25em;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  border: 1px solid var(--color-black);
+  z-index: 99;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.map-controls {
+  margin-bottom: 0.5rem;
+  align-items: flex-start;
+
+  .layers {
+    margin-right: 1rem;
+  }
+}
