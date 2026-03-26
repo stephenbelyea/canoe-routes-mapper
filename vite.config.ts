@@ -10,4 +10,7 @@ export default defineConfig({
       "@babel/runtime/helpers/extends",
     ],
   },
+  build: {
+    outDir: "./docs",
+  },
 });
