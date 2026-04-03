@@ -75,11 +75,21 @@ h3 {
 }
 
 #map svg path.leaflet-interactive {
-  transition: stroke-opacity var(--transition-time);
+  outline: 0.25em solid rgba(128, 0, 128, 0);
+  outline-offset: 0.75em;
+  border-radius: 0.25em;
+  transition:
+    stroke-opacity var(--transition-time),
+    outline var(--transition-time);
 
-  &:hover,
+  &:hover {
+    stroke-opacity: 0.85;
+    outline: 0.25em solid rgba(128, 0, 128, 0.25);
+  }
+
   &:focus {
     stroke-opacity: 0.85;
+    outline: 0.25em solid rgba(128, 0, 128, 0.5);
   }
 }
 

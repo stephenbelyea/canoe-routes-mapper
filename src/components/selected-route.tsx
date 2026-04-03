@@ -18,7 +18,11 @@ export const SelectedRoute = ({
   const hasSelected = selectedSegments.length > 0;
 
   const onClearSelected = () => {
-    setSelectedSegments([]);
+    if (
+      window.confirm("Are you sure you want to clear the selected segments?")
+    ) {
+      setSelectedSegments([]);
+    }
   };
 
   const totalLength = useMemo(() => {
@@ -35,7 +39,7 @@ export const SelectedRoute = ({
   }, [selectedSegments]);
 
   const onCopySegments = () => {
-    window.confirm("Selected segments have been copied to your clipboard!");
+    window.alert("Selected segments have been copied to your clipboard!");
   };
 
   return (

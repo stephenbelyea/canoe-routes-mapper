@@ -30,7 +30,7 @@ export const AllSegmentsPaths = ({
     () => ({
       color: isSelectedSet ? SEGMENT_SELECTED_COLOUR : SEGMENT_PATH_COLOUR,
       opacity: isSelectedSet ? 0.75 : 0.45,
-      weight: 5,
+      weight: 8,
     }),
     [isSelectedSet],
   );
