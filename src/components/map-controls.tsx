@@ -52,7 +52,7 @@ export const MapControls = ({
               onClick={() => setShowHaveCamped(!showHaveCamped)}
               disabled={!showCampsites}
             >
-              Only Sites I've Camped At
+              Only Sites With Notes
             </Button>
           </div>
         </div>

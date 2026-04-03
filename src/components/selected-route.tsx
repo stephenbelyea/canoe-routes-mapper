@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { formatLength } from "../utilities";
 import type { SegmentSet } from "../types";
 import { Button } from "./button";
@@ -28,6 +29,15 @@ export const SelectedRoute = ({
     return formatLength(length);
   }, [selectedRoute]);
 
+  const selectedSegmentsString = useMemo(() => {
+    if (selectedSegments.length === 0) return "";
+    return JSON.stringify(selectedSegments);
+  }, [selectedSegments]);
+
+  const onCopySegments = () => {
+    window.confirm("Selected segments have been copied to your clipboard!");
+  };
+
   return (
     <div className="selected-segments">
       <div>
@@ -42,6 +52,11 @@ export const SelectedRoute = ({
       <Button size="small" disabled={!hasSelected} onClick={onClearSelected}>
         Clear
       </Button>
+      <CopyToClipboard text={selectedSegmentsString} onCopy={onCopySegments}>
+        <Button size="small" disabled={!hasSelected}>
+          Save
+        </Button>
+      </CopyToClipboard>
     </div>
   );
 };
