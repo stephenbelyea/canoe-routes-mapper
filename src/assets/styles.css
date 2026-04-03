@@ -3,9 +3,12 @@
   --color-white: white;
   --color-white-active: snow;
   --color-offwhite: ivory;
+  --color-offwhite-alt: #f8eee2;
   --color-black: #343434;
   --color-black-disabled: rgba(0, 0, 0, 0.35);
   --transition-time: 0.15s;
+  --bg-size-full: 40px;
+  --bg-size-half: 20px;
 }
 
 body {
@@ -13,7 +16,42 @@ body {
   font-size: 1rem;
   line-height: 1.35;
   color: var(--color-black);
-  background: var(--color-offwhite);
+
+  /**
+   * Background pattern from MagicPattern:
+   * https://www.magicpattern.design/tools/css-backgrounds
+   */
+  background-color: var(--color-offwhite);
+  background:
+    radial-gradient(
+      circle,
+      transparent 20%,
+      var(--color-offwhite) 20%,
+      var(--color-offwhite) 80%,
+      transparent 80%,
+      transparent
+    ),
+    radial-gradient(
+        circle,
+        transparent 20%,
+        var(--color-offwhite) 20%,
+        var(--color-offwhite) 80%,
+        transparent 80%,
+        transparent
+      )
+      var(--bg-size-half) var(--bg-size-half),
+    linear-gradient(var(--color-offwhite-alt) 2px, transparent 2px) 0 -1px,
+    linear-gradient(
+        90deg,
+        var(--color-offwhite-alt) 2px,
+        var(--color-offwhite) 2px
+      ) -1px
+      0;
+  background-size:
+    var(--bg-size-full) var(--bg-size-full),
+    var(--bg-size-full) var(--bg-size-full),
+    var(--bg-size-half) var(--bg-size-half),
+    var(--bg-size-half) var(--bg-size-half);
 }
 
 .wrap {
@@ -72,6 +110,8 @@ h3 {
   flex: 1 1 auto;
   position: relative;
   z-index: 10;
+  border-radius: 0.35em;
+  border: solid 1px var(--color-black);
 }
 
 #map svg path.leaflet-interactive {
