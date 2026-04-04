@@ -1,20 +1,12 @@
-import { useMemo } from "react";
+import { useContext, useMemo } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { RoutesContext } from "../context/routes-context";
 import { formatLength } from "../utilities";
-import type { SegmentSet } from "../types";
 import { Button } from "./button";
 
-export type SelectedRouteProps = {
-  selectedRoute: SegmentSet[];
-  selectedSegments: string[];
-  setSelectedSegments: React.Dispatch<React.SetStateAction<string[]>>;
-};
-
-export const SelectedRoute = ({
-  selectedRoute,
-  selectedSegments,
-  setSelectedSegments,
-}: SelectedRouteProps) => {
+export const SelectedRoute = () => {
+  const { selectedRoute, selectedSegments, setSelectedSegments } =
+    useContext(RoutesContext);
   const hasSelected = selectedSegments.length > 0;
 
   const onClearSelected = () => {

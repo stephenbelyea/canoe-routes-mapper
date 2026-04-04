@@ -1,23 +1,20 @@
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { Circle, Polyline, Tooltip } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
-import type { SegmentSet } from "../types";
+import { RoutesContext } from "../context/routes-context";
 import { formatLength } from "../utilities";
 import { SEGMENT_PATH_COLOUR, SEGMENT_SELECTED_COLOUR } from "../constants";
-
-export type SegmentsPathsProps = {
-  segments: SegmentSet[];
-  isSelectedSet?: boolean;
-  selectedSegments?: string[];
-  setSelectedSegments?: React.Dispatch<React.SetStateAction<string[]>>;
-};
+import type { SegmentSet } from "../types";
 
 export const AllSegmentsPaths = ({
-  segments,
   isSelectedSet,
-  selectedSegments,
-  setSelectedSegments,
-}: SegmentsPathsProps) => {
+  segments,
+}: {
+  isSelectedSet?: boolean;
+  segments: SegmentSet[];
+}) => {
+  const { selectedSegments, setSelectedSegments } = useContext(RoutesContext);
+
   const onSelectSegment = (id: string): void => {
     if (!setSelectedSegments) return;
     const newSegments = selectedSegments?.includes(id)

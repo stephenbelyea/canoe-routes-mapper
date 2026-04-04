@@ -1,29 +1,20 @@
+import { useContext } from "react";
 import { Button } from "./button";
-import { Select, type SelectOption } from "./select";
+import { Select } from "./select";
+import { RoutesContext } from "../context/routes-context";
 
-export type MapControlsProps = {
-  showCampsites: boolean;
-  showHaveCamped: boolean;
-  showSegments: boolean;
-  selectedRoute: string;
-  savedRoutesOptions: SelectOption[];
-  setShowCampsites: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowHaveCamped: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowSegments: React.Dispatch<React.SetStateAction<boolean>>;
-  setSelectedRoute: React.Dispatch<React.ChangeEvent<HTMLSelectElement>>;
-};
-
-export const MapControls = ({
-  showCampsites,
-  showHaveCamped,
-  showSegments,
-  selectedRoute,
-  savedRoutesOptions,
-  setShowCampsites,
-  setShowHaveCamped,
-  setShowSegments,
-  setSelectedRoute,
-}: MapControlsProps) => {
+export const MapControls = () => {
+  const {
+    showCampsites,
+    showHaveCamped,
+    showSegments,
+    savedRoute,
+    savedRoutesOptions,
+    setShowCampsites,
+    setShowHaveCamped,
+    setShowSegments,
+    setSelectSavedRoute,
+  } = useContext(RoutesContext);
   return (
     <>
       <div className="map-controls flex">
@@ -63,9 +54,9 @@ export const MapControls = ({
           <div className="flex">
             <Select
               label="saved routes"
-              selected={selectedRoute}
+              selected={savedRoute}
               options={savedRoutesOptions}
-              onChange={setSelectedRoute}
+              onChange={setSelectSavedRoute}
             />
           </div>
         </div>

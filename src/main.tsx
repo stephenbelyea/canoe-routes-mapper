@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { Overview } from "./views";
+import { RouterProvider } from "react-router";
+import { router } from "./router";
 
 import "./assets/reset.css";
 import "./assets/styles.css";
@@ -8,6 +9,6 @@ import "leaflet/dist/leaflet.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Overview />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
