@@ -173,8 +173,26 @@ h3 {
 .map-controls {
   margin-bottom: 0.5rem;
   align-items: flex-start;
+  flex-wrap: wrap;
 
   .layers {
     margin-right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    width: 94vw;
+  }
+
+  header,
+  aside,
+  main,
+  footer {
+    padding: 0.5rem;
+  }
+
+  .flex {
+    flex-wrap: wrap;
   }
 }

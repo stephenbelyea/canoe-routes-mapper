@@ -14,7 +14,14 @@ import type { RoutesContextType } from "../types/routes-context";
 
 export const Overview = () => {
   const context: RoutesContextType = useOverviewContext();
-  const { center, selectedRoute, allSegments, allCampsites } = context;
+  const {
+    center: routesCenter,
+    selectedRoute,
+    allSegments,
+    allCampsites,
+  } = context;
+
+  const center = routesCenter || MAP_CONFIG.CENTER;
 
   return (
     <RoutesContext.Provider value={context}>
@@ -25,9 +32,9 @@ export const Overview = () => {
       >
         <SelectedRoute />
         <MapContainer
-          center={center || MAP_CONFIG.CENTER}
           id={MAP_CONFIG.CONTAINER_ID}
           zoom={MAP_CONFIG.ZOOM}
+          center={center}
         >
           <MapMeta />
           <AllSegmentsPaths segments={allSegments} />
