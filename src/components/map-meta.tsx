@@ -25,7 +25,8 @@ export const MapMeta = () => {
     if (savedRouteId) {
       const savedRoute = savedRoutes.find(({ id }) => id === savedRouteId);
       const center = savedRoute?.center || MAP_CONFIG.CENTER;
-      map.setView(center, MAP_CONFIG.ZOOM_SELECTED);
+      const zoom = savedRoute?.zoom || MAP_CONFIG.ZOOM;
+      map.setView(center, zoom);
     }
     if (!savedRouteId) {
       map.setView(MAP_CONFIG.CENTER, MAP_CONFIG.ZOOM);

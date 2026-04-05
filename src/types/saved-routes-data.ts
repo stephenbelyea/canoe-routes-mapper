@@ -5,4 +5,5 @@ export type SavedRoute = {
   name: string;
   center: Coordinate;
   segments: string[];
+  zoom: number;
 };

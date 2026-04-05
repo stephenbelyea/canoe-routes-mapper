@@ -8,7 +8,6 @@ export const MAP_CONFIG = {
   SCROLL_ZOOM: false,
   URL: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   ZOOM: 9,
-  ZOOM_SELECTED: 11,
 };
 
 export const BASE_ICON_SIZE = 24;
