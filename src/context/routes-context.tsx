@@ -21,4 +21,5 @@ export const RoutesContext = createContext({
   setSelectedSegments: () => {},
   setSavedRoute: () => {},
   setSelectSavedRoute: () => {},
+  clearSelectedSegments: () => {},
 } as RoutesContextType);

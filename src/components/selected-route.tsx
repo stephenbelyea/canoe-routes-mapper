@@ -5,7 +5,7 @@ import { formatLength } from "../utilities";
 import { Button } from "./button";
 
 export const SelectedRoute = () => {
-  const { selectedRoute, selectedSegments, setSelectedSegments } =
+  const { selectedRoute, selectedSegments, clearSelectedSegments } =
     useContext(RoutesContext);
   const hasSelected = selectedSegments.length > 0;
 
@@ -13,7 +13,7 @@ export const SelectedRoute = () => {
     if (
       window.confirm("Are you sure you want to clear the selected segments?")
     ) {
-      setSelectedSegments([]);
+      clearSelectedSegments();
     }
   };
 

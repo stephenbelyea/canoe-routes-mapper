@@ -23,4 +23,5 @@ export type RoutesContextType = {
   setSelectedSegments: (segments: string[]) => void;
   setSavedRoute: (routeId: string) => void;
   setSelectSavedRoute: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  clearSelectedSegments: () => void;
 };

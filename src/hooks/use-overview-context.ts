@@ -1,10 +1,15 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useGetSavedRoutes } from "./use-get-saved-routes";
 import { useGetCampsites } from "./use-get-campsites";
 import { useGetSegments } from "./use-get-segments";
 import type { SavedRoute, RoutesContextType } from "../types";
+import { useNavigate, useParams } from "react-router";
+import { ROUTES } from "../router";
 
 export const useOverviewContext = () => {
+  const navigate = useNavigate();
+  const { savedRouteId } = useParams();
+
   const { segments, center } = useGetSegments();
   const { campsites } = useGetCampsites();
   const { savedRoutes } = useGetSavedRoutes();
@@ -59,6 +64,23 @@ export const useOverviewContext = () => {
     setSelectedSegments(segments);
   };
 
+  const clearSelectedSegments = () => {
+    setSelectedSegments([]);
+    setSavedRoute("");
+  };
+
+  useEffect(() => {
+    if (!savedRouteId && savedRoute) {
+      navigate(`${ROUTES.ROUTE}/${savedRoute}`);
+    }
+    if (savedRouteId && savedRoute && savedRouteId !== savedRoute) {
+      navigate(`${ROUTES.ROUTE}/${savedRoute}`);
+    }
+    if (savedRouteId && !savedRoute) {
+      navigate(ROUTES.HOME);
+    }
+  }, [savedRoute, savedRouteId, navigate]);
+
   return {
     segments,
     center,
@@ -79,5 +101,6 @@ export const useOverviewContext = () => {
     selectedRoute,
     savedRoutesOptions,
     setSelectSavedRoute,
+    clearSelectedSegments,
   } as RoutesContextType;
 };
